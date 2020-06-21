@@ -5,4 +5,4 @@ Battlefield Vietnam dedicated server Docker container!!
 
 Can be download from here -> http://fizweb.elte.hu/battlefield/Battlefield-Vietnam/  (bfv_linded-v1.21-20041207.1627.zip)
 
-Or may be found in BFV CD-ROM ???
+~~Or may be found in BFV CD-ROM ???~~ (Only BFV Server for Windows found in BFV 1.20 CD-ROM. Server for linux is not inside.)
