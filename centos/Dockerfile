@@ -24,6 +24,8 @@ RUN	yum update -y && yum install -y bzip2 glibc.i686 ncurses-libs.i686 && \
 	mv /usr/bin/more.bak /usr/bin/more && \
 	chmod +x /usr/bin/entrypoint.sh
 
+COPY BVServerManager201.tgz /usr/bin/bfv
+
 WORKDIR /usr/bin/bfv
 ENTRYPOINT [ "entrypoint.sh" ]
 # CMD	["+statusMonitor", "1"]

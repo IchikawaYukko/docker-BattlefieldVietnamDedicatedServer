@@ -1,8 +1,10 @@
-# docker-BattlefieldVietnamDedicatedServer
-Battlefield Vietnam dedicated server Docker container!!
+# Battlefield Vietnam dedicated server Docker container!!
 
-`Dedicated server installer` (bfv_linded-v1.21-20041207.1627.run) is required for build this container image.
+* `Dedicated server installer v1.21 Linux` (bfv_linded-v1.21-20041207.1627.run)
+* `Battlefield Vietnam Server Manager - v2.01 Linux` (BVServerManager201.tgz)
 
-Can be download from here -> http://fizweb.elte.hu/battlefield/Battlefield-Vietnam/  (bfv_linded-v1.21-20041207.1627.zip)
+    are required for build this container image.
+
+Can be download from here -> http://fizweb.elte.hu/battlefield/Battlefield-Vietnam/ or http://www.bf-games.net/downloads/category/73/server.html
 
 ~~Or may be found in BFV CD-ROM ???~~ (Only BFV Server for Windows found in BFV 1.20 CD-ROM. Server for linux is not inside.)
