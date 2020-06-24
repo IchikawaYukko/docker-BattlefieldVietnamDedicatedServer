@@ -1,3 +1,5 @@
+[日本語](READMEja.md)
+
 # Battlefield Vietnam dedicated server Docker container!!
 
 * `Dedicated server installer v1.21 Linux` (bfv_linded-v1.21-20041207.1627.run)
@@ -8,3 +10,5 @@
 Can be download from here -> http://fizweb.elte.hu/battlefield/Battlefield-Vietnam/ or http://www.bf-games.net/downloads/category/73/server.html
 
 ~~Or may be found in BFV CD-ROM ???~~ (Only BFV Server for Windows found in BFV 1.20 CD-ROM. Server for linux is not inside.)
+
+__Don't have Battlefield Vietnam game itself ? You can buy in Amazon.com !!! You should buy it !!!__
