@@ -13,7 +13,6 @@ COPY	entrypoint.sh /usr/bin/entrypoint.sh
 #     no\n        Not install PunkBuster
 #     /usr/bin\n  Install BFV server to /usr/bin/bfv
 
-#RUN	yum install -y bzip2 glibc32 ncurses-compat-libs.i686 #CentOS8
 RUN	yum update -y && yum install -y bzip2 glibc.i686 ncurses-libs.i686 && \
 	cp -p /usr/bin/more{,.bak} && \
 	cp -p /usr/bin/cat /usr/bin/more && \
