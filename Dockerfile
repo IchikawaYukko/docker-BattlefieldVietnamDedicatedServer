@@ -1,4 +1,4 @@
-FROM	centos:7
+FROM	centos:8
 
 COPY	bfv_linded-v1.21-20041207.1627.run /bfv_linded-v1.21-20041207.1627.run
 COPY	entrypoint.sh /usr/bin/entrypoint.sh
@@ -12,9 +12,8 @@ COPY	entrypoint.sh /usr/bin/entrypoint.sh
 #     \n          Continue to EULA for PunkBuster
 #     no\n        Not install PunkBuster
 #     /usr/bin\n  Install BFV server to /usr/bin/bfv
-
-#RUN	yum install -y bzip2 glibc32 ncurses-compat-libs.i686 #CentOS8
-RUN	yum update -y && yum install -y bzip2 glibc.i686 ncurses-libs.i686 && \
+RUN test $(md5sum /bfv_linded-v1.21-20041207.1627.run |cut -f1 -d ' ') = 'd2271ca642f38e45fabcd14a84ef2bf5' && \
+	yum update -y && yum install -y bzip2 glibc.i686 ncurses-compat-libs.i686 && \
 	cp -p /usr/bin/more{,.bak} && \
 	cp -p /usr/bin/cat /usr/bin/more && \
 	chmod +x /bfv_linded-v1.21-20041207.1627.run && \
@@ -28,4 +27,3 @@ COPY BVServerManager201.tgz /usr/bin/bfv
 
 WORKDIR /usr/bin/bfv
 ENTRYPOINT [ "entrypoint.sh" ]
-# CMD	["+statusMonitor", "1"]
