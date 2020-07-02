@@ -2,19 +2,19 @@ version: '3'
 
 services:
   bfv:
-    # build:
-    #   context: centos
-    # image: BFV_DedicatedServer
-    image: bfv
+    build:
+      context: .
+    image: battlefield_vietnam
     container_name: battlefield_vietnam
-    environment: 
-      - SERVERNAME=YOUR SERVER NAME HERE
+    volumes:
+      - ./settings/:/usr/bin/bfv/mods/bfvietnam/settings/ # server settings
     ports:
-      - "4711:4711"  # Remote Console Port
-      - "14667:14667"  # Battlefield Server Manager (BFSM)
+      - "5711:5711"  # Remote Console Port
       - "14690:14690/udp" # All-Seeing Eye (ASE)
       - "15567:15567/udp" # Battlefield Vietnam
+      - "15667:15667"  # Battlefield Server Manager (BFSM)
       - "22000:22000/udp" # GameSpy Internet
       - "23000:23000/udp" # GameSpy LAN
       - "27900:27900/udp" # Publish server to GameSpy
       - "27910:27910/udp" # Client CDKey check to GameSpy
+    command: -restart \@server Admin.enableremoteadmin DockerBFV

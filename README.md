@@ -12,3 +12,12 @@ Can be download from here -> http://fizweb.elte.hu/battlefield/Battlefield-Vietn
 ~~Or may be found in BFV CD-ROM ???~~ (Only BFV Server for Windows found in BFV 1.20 CD-ROM. Server for linux is not inside.)
 
 __Don't have Battlefield Vietnam game itself ? You can buy in Amazon.com !!! You should buy it !!!__
+
+# Setting
+
+You can modify server settings by Battlefield Vietnam Remote Manager (BVRM).
+
+## Initial Username & Password
+Server Manager:  admin / password
+
+Server Console:  UserName / DockerBFV
