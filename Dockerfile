@@ -25,7 +25,15 @@ RUN	yum update -y && yum install -y bzip2 glibc.i686 ncurses-libs.i686 && \
 	chmod +x /usr/bin/entrypoint.sh && \
 	tar zxfv /BVServerManager201.tgz -C /usr/bin/bfv bvsmd.static && \
 	tar zxfv /BVServerManager201.tgz -C /usr/bin/bfv/mods/bfvietnam/settings/ useraccess.con servermanager.con playermenu.con && \
+	rm -f /BVServerManager201.tgz && \
+	sed -ie 's/manager\.consolePassword ".*"/manager.consolePassword "DockerBFV"/' /usr/bin/bfv/mods/bfvietnam/settings/servermanager.con && \
+	sed -ie 's/game\.serverMaxAllowedConnectionType .*/game.serverMaxAllowedConnectionType CTModem56Kbps/' /usr/bin/bfv/mods/bfvietnam/settings/servermanager.con && \
+	sed -ie 's/game\.serverMaxPlayers .*/game.serverMaxPlayers 64/' /usr/bin/bfv/mods/bfvietnam/settings/servermanager.con && \
 	cp -aR /usr/bin/bfv/mods/bfvietnam/settings/ /usr/bin/bfv/server_settings_skel/
+
+# Select all conquest map as server playable map
+# If non selected, fail to launch server by BVSM
+COPY servermaplist_preselect_conquest_maps.con /usr/bin/bfv/server_settings_skel/servermaplist.con
 
 WORKDIR /usr/bin/bfv
 ENTRYPOINT [ "entrypoint.sh" ]

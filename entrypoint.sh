@@ -13,6 +13,10 @@ if ! ls -1qA /usr/bin/bfv/mods/bfvietnam/settings/| grep  -q .; then
     echo SERVER SETTING TEMPLATE COPIED
 fi
 
+# Set Docker container IP as game.serverIP & bind All I/F
+sed -ie 's/game\.serverIP .*/game.serverIP '`hostname -i`'/' /usr/bin/bfv/mods/bfvietnam/settings/servermanager.con
+sed -ie 's/manager\.bindAllIntefaces ./manager.bindAllIntefaces 1/' /usr/bin/bfv/mods/bfvietnam/settings/servermanager.con
+
 # Start Server Manager
 ln -s bfv_linded.static bfv_linded
 /usr/bin/bfv/bvsmd.static -daemon "$@"
