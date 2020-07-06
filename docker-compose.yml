@@ -17,4 +17,4 @@ services:
       - "23000:23000/udp" # GameSpy LAN
       - "27900:27900/udp" # Publish server to GameSpy
       - "27910:27910/udp" # Client CDKey check to GameSpy
-    command: -restart \@server Admin.enableremoteadmin DockerBFV
+    command: -start -restart \@server Admin.enableremoteadmin DockerBFV
