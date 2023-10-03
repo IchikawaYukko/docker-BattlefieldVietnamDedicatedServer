@@ -6,6 +6,9 @@ services:
       context: .
     image: battlefield_vietnam
     container_name: battlefield_vietnam
+    environment:
+      - PUID=1000
+      - PGID=1000
     volumes:
       - ./settings/:/usr/bin/bfv/mods/bfvietnam/settings/ # server settings
     ports:
