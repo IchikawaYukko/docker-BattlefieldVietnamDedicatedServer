@@ -4,7 +4,7 @@ services:
   bfv:
     build:
       context: .
-    image: battlefield_vietnam
+    image: battlefield_vietnam_eod
     container_name: battlefield_vietnam
     environment:
       - PUID=1000
