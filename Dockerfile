@@ -38,12 +38,13 @@ RUN	yum-config-manager --disable base && \
 	rm -f /usr/bin/more && \
 	mv /usr/bin/more.bak /usr/bin/more
 
-FROM centos:7 AS bfv-server-build
+FROM	centos:7.9.2009 AS bfv-server-build
 
 COPY	BVServerManager201.tgz /BVServerManager201.tgz
 COPY	entrypoint.sh /usr/bin/entrypoint.sh
 
-RUN chmod +x /usr/bin/entrypoint.sh && \
+RUN	chmod +x /usr/bin/entrypoint.sh && \
+	mkdir -p /usr/bin/bfv/mods/bfvietnam/settings/ && \
 	tar zxfv /BVServerManager201.tgz -C /usr/bin/bfv bvsmd.static && \
 	tar zxfv /BVServerManager201.tgz -C /usr/bin/bfv/mods/bfvietnam/settings/ useraccess.con servermanager.con playermenu.con && \
 	rm -f /BVServerManager201.tgz && \
@@ -54,7 +55,7 @@ RUN chmod +x /usr/bin/entrypoint.sh && \
 
 # Select all conquest map as server playable map
 # If non selected, fail to launch server by BVSM
-COPY servermaplist_preselect_conquest_maps.con /usr/bin/bfv/server_settings_skel/servermaplist.con
+COPY	servermaplist_preselect_conquest_maps.con /usr/bin/bfv/server_settings_skel/servermaplist.con
 
-WORKDIR /usr/bin/bfv
+WORKDIR	/usr/bin/bfv
 ENTRYPOINT [ "entrypoint.sh" ]
