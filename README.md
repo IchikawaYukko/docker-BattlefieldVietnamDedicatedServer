@@ -24,5 +24,5 @@ Server Console:  UserName / DockerBFV
 
 ~~You must change Manager password after successful deploy.~~
 
-Currently can not change password when you bind mount mods/bfvietnam/settings/ directory. So you should block 15667/udp port by firewall rule, or only permit access from IP address od your PC.
+Currently can not change password when you bind mount mods/bfvietnam/settings/ directory. So you should block 15667/udp port by firewall rule, or only permit access from IP address on your PC.
 
