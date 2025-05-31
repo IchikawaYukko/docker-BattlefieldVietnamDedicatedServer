@@ -8,7 +8,7 @@ RUN	yum install -y unzip && \
 	unzip -o /eod_020_server_hotfix.zip -d /usr/bin/bfv/mods/ && \
 	yum remove -y unzip
 
-FROM	centos:7 AS bfv-linded-build
+FROM	centos:7.9.2009 AS bfv-linded-build
 
 COPY	bfv_linded-v1.21-20041207.1627.run /bfv_linded-v1.21-20041207.1627.run
 
@@ -22,7 +22,14 @@ COPY	bfv_linded-v1.21-20041207.1627.run /bfv_linded-v1.21-20041207.1627.run
 #     no\n        Not install PunkBuster
 #     /usr/bin\n  Install BFV server to /usr/bin/bfv
 
-RUN	yum update -y && yum install -y bzip2 glibc.i686 ncurses-libs.i686 && \
+RUN	yum-config-manager --disable base && \
+	yum-config-manager --disable extras && \
+	yum-config-manager --disable updates && \
+	yum install -y yum install https://linuxsoft.cern.ch/cern/centos/7/updates/x86_64/Packages/centos-release-7-9.2009.2.el7.centos.x86_64.rpm && \
+	yum-config-manager --enable C7.9.2009-base && \
+	yum-config-manager --enable C7.9.2009-extras && \
+	yum-config-manager --enable C7.9.2009-updates && \
+	yum update -y && yum install -y bzip2 glibc.i686 ncurses-libs.i686 && \
 	cp -p /usr/bin/more{,.bak} && \
 	cp -p /usr/bin/cat /usr/bin/more && \
 	chmod +x /bfv_linded-v1.21-20041207.1627.run && \
